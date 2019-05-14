@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+install() {
+  version=$2
+  install_dir=$3
+
+  build_dir=$(mktemp -d)
+  cd $build_dir
+
+  platform=$(uname)
+
+  if [ $platform == 'Darwin' ]; then
+    curl -fSL -JO https://cdn.mysql.com//Downloads/MySQL-8.0/mysql-$version-macos10.14-x86_64.tar.gz
+  elif [ $platform == 'Linux' ]; then
+    curl -fSL -JO https://cdn.mysql.com//Downloads/MySQL-8.0/mysql-$version-linux-x86_64-minimal.tar.xz
+  else
+    exit 1
+  fi
+
+  bsdtar -xzf mysql*z
+  rm -rf mysql*z
+  mv mysql*/* $ASDF_INSTALL_PATH/ || exit 1
+}
+
+install $ASDF_INSTALL_TYPE $ASDF_INSTALL_VERSION $ASDF_INSTALL_PATH
