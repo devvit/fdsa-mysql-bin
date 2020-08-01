@@ -19,7 +19,7 @@ install() {
 
   bsdtar -xzf mysql*z
   rm -rf mysql*z
-  mv mysql*/* $ASDF_INSTALL_PATH/ || exit 1
+  mv mysql*/* $install_dir/ || exit 1
 }
 
 install $ASDF_INSTALL_TYPE $ASDF_INSTALL_VERSION $ASDF_INSTALL_PATH
