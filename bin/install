@@ -12,7 +12,7 @@ install() {
   if [ $platform == 'Darwin' ]; then
     curl -fSL -JO https://cdn.mysql.com//Downloads/MySQL-8.0/mysql-$version-macos10.15-x86_64.tar.gz
   elif [ $platform == 'Linux' ]; then
-    curl -fSL -JO https://dev.mysql.com/get/Downloads/MySQL-8.0/mysql-$version-linux-glibc2.17-x86_64-minimal.tar.xz
+    curl -fSL -JO https://cdn.mysql.com//Downloads/MySQL-8.0/mysql-$version-linux-glibc2.17-x86_64-minimal.tar.xz
   else
     exit 1
   fi
